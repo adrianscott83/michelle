@@ -49,7 +49,7 @@
 				<div class="form-group">
 					<label for="clue-2-b">What's the name of the city we're in?</label>
 					<input type="text" class="form-control" id="clue-2-b">
-					<small id="clue-2-help" class="form-text text-muted">This is case sensitive, please mske sure to capitalize it!</small>
+					<small id="clue-2-help" class="form-text text-muted">This is case sensitive, please make sure to capitalize it!</small>
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -59,23 +59,7 @@
 		
 		<hr>
 		
-		<div class="row mt-6">
-			<div class="col-md-4">
-				<div class="form-group">
-					<input type="text" class="form-control" id="encrypt-key">
-				</div>
-				<div class="form-group">
-					<textarea id="encrypt-content" class="form-control"></textarea>
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div id="encrypted" style="word-wrap: break-word;"></div>
-			</div>
-		</div>
-		
-		
-		
-		
+		<p>More to come...</p>
 		
 	</div>
 	
@@ -86,8 +70,18 @@
 	
 	<script type="text/javascript">
 	(function($) {
+	
+		/*
+		 * Dearest Michelle. I love you and the fact that you are trying to see
+		 * how everything is working, but hey, I encrypted things so, sorry?
+		 * Might as well just wait for me to give you the clues as necessary ;)
+		 *
+		 * I really love you!
+		 */
 		
-		var part1 = 'U2FsdGVkX18smSoIUyAyp0709OKZlUn+Uo2qYkAqJdbq7liv3Wjm4djB073QJUxpmGn/HybM7ltgQuMFdAFOZgWqwSsGC+HkPOuryB+wu5duIw2Mm4O+a7sCy8d1/WYGBPxppQw+Js+AcbYrcT1pm8/Y+VxwGZ+Wggn7K3GGf8Hgx6qfaSlOIxOA53ixgr8GN93lVAAIIR9pWe58UdtsrSk4oWlZwVIK8VwYM0UXAru3pGkEZMa2uwvkgFgDrQu7YvTPd5kQvnaTcu/x143QqSG4ENx2296s7z/P7fmi6aHIEEzMhV021N7Di7Jc+y3rscU/uMmil/i0nRvxWw6b/Yh/HuVp3u2RRn5UM8pzyzalZtds4y0qCXg+YaN5Vd5CY5dB3b8Uj+q56jnpFVDsoAmZLKzCDD0odh0l4SREBhXjoL4zjbFDc4hyqwZ7myd5BoWssEMLQjkhrtP7aJ2LzTGHeslYQrpPvGpY7Sdfq0s=';
+		var part1 = 'U2FsdGVkX1+N9qSL5QBj57xmqT9OBnuJX6k8XQLrRTyZwDOBOdsu111b9B85l6rGvBWl+3+6dFz6EKXdctKARxb8JrOr1YVXV+2KhEkUd78IPuqSHYhcWurssSF2SSpMme3yrxGsSc29fm9H+KpUUE1sY1gjYwvxG53FI1nlYoMQcWhUEKGFzKWr03lrr35umuvuvrBZSvg+XD+Z0NBwYu/hlyAs5hO6LAFZA6BvHMkXo8sve81YqGbhJ7kWMLxTeM8qKOvwlDsVjJBhuDTmP59PwJLcUg0Q+WPlsTpVH5tU60Ir2aFLzqXK7fe1hHY2uAM0salaooIy1U0LsKDBY7TXQR53Up490/sdv0D3eYMVLIaU0jxlF7yTrZWvxxo7Dgem+jBIvmbgm/J9ddHR1gJKGc6OLlQ3oL2UThSrtFAYGMKojBitwlGFqMJxOsboMiWx5j9/mOpc+7LxeZVspP3dI3DMIVV2SBsSwnFI8FgTP+jqns4inRSbLpWFyqA+';
+		
+		var part2 = 'U2FsdGVkX18KKSgWQCVONOto7SI6LCtTg3ISGOxhZTaJHFJCflltNNjtjMhVgwkaAX0Pi4Rb4WTdn0uChvaKoRZgRtrbmoVYd52bwNjSQAnNq/VLqg/xyCf0Y0SDOX2vI267/El4RA3YUa9IeTgFHEOL2jdule90lQNfdDsc4oG8vlayjiizd2LvjAEpY72iHJOLMG5chQFIK9xp9KwMzAmd/VbSBNjMXW8T3tcbdy8LVS2OqDhKp6BiQ8gXkidxIU2Yn88eO6Qw9DsDEXg9o8v/4HBO9AGpK2qrjmI7byrey4DdE9sy3O4fvywXEt0CffIA0JAOvDgmhz2kSxn2CQ==';
 		
 		var reportSuccess = function(msg) {
 			return '<div class="alert alert-success" role="alert">' + msg + '</div>';
@@ -96,8 +90,8 @@
 			return '<div class="alert alert-danger" role="alert">Sorry, that was the wrong answer :\'(</div>';
 		};
 	
+		var $part1 = $('#part-1');
 		$('#clue-1').on('input', function() {
-			var $part1 = $('#part-1');
 			try {
 				var bytes = CryptoJS.AES.decrypt(part1, $(this).val());
 				$part1.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8) + '</div>'));
@@ -105,26 +99,23 @@
 				$part1.html(reportError());
 			}
 		});
-	
-		$('#clue-2-a, #clue-2-b').on('input', function() {
 		
-		
-			var $part2 = $('#part-2');
-			$part2.text('OMG');
-		
+		var $clue2a = $('#clue-2-a'),
+			$clue2b = $('#clue-2-b'),
+			$part2 = $('#part-2');
+			
+		$clue2a.add($clue2b).on('input', function() {
+			if ('' === $clue2a.val() || '' === $clue2b.val()) {
+				return;
+			}
+			
+			try {
+				var bytes = CryptoJS.AES.decrypt(part2, $clue2a.val() + '|' + $clue2b.val());
+				$part2.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8) + '</div>'));
+			} catch (e) {
+				$part2.html(reportError());
+			}
 		});
-		
-		
-	
-	
-	
-	
-	
-		$('#encrypt-key, #encrypt-content').on('input', function() {
-			$('#encrypted').text(CryptoJS.AES.encrypt($('#encrypt-content').val(), $('#encrypt-key').val()).toString());
-		});
-	
-	
 	
 	})(jQuery);
 	</script>
