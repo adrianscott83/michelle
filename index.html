@@ -97,6 +97,56 @@
 		
 		<hr>
 		
+		<h5>Clue #5</h5>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="clue-5-a">There are two paintings above two plants (under a clock). What kind of fruit is depected in the left painting?</label>
+					<input type="text" class="form-control" id="clue-5-a">
+				</div>
+				<div class="form-group">
+					<label for="clue-5-b">How many objects and of what color are the items in the painting on the right?</label>
+					<div class="row">
+						<div class="col">
+							<select id="clue-5-b" class="form-control">
+								<option value="">Please Select...</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select>
+							<small class="form-text text-muted"># of object(s)</small>
+						</div>
+						<div class="col">
+							<select id="clue-5-c" class="form-control">
+								<option value="">Please Select...</option>
+								<option value="blue">Blue</option>
+								<option value="red">Red</option>
+								<option value="yellow">Yellow</option>
+								<option value="green">Green</option>
+								<option value="purple">Purple</option>
+								<option value="brown">Brown</option>
+								<option value="white">White</option>
+								<option value="black">Black</option>
+							</select>
+							<small class="form-text text-muted">Color of object(s)</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div id="part-5" class="text-break"></div>
+			</div>
+		</div>
+		
+		<hr>
+		
 		<p>More to come...</p>
 		
 	</div>
@@ -124,6 +174,8 @@
 		var part3 = 'U2FsdGVkX19J8zONvZ89ANDsM16IYF5Iv4d1lQKkGBL+3e+N7ITxqlzxmQG9EY0wmNvVC6fdOwFriZBerDTf7NewWlBpeG7SajWf5EoQEow2ktUJ570yB1DKE8N1T7WdcULvg6efAOF9euS/47iBdyuntV1ZhqaQipohtgfFlYYZkhoQy3LcRcVYW6syHI6e7linQzz/pEbZIeQtLiYmNH9XJVNcp2r62hQMBgo07RAaKPyvN52ySuhcLE1zYBGyRTn2HOhsqk7clSY6Br/wRhRKkMQnjrZlXPxqXDiNOioP6iCJJRBYjGq2wTEcx7dABTSg7m/zRFtwrHi5Hk97ud5RjSsPNY3ushRoYwz1YQcDTXyyvnkbJKG5LznIQyjgFK49ROL006cgEGPp4PGfsVV9BEAPwObcbP+WeJRyTQ+jacQPNMA4qzmszW6gea5LnDsPTCiiE0GXLGwH9u0cOqaO/TAh8QR7XGApJ+TVDJo=';
 		
 		var part4 = 'U2FsdGVkX1+YzgOWGv3HdfMttEGlF0RjruXpZs4HDjN4HUSRH+zwMPPhJPO0DGfL0PV8rS2XH5BFgrqUctap3OAuZGCyYSpnaQNSXKtCExOGL1x3+SdYoqg9Rns6yDyRsTAb5P/SG13/Wj0yK5GWTfR00CbseRtMv+KzK9PTqkXYhzW6Ssgc1od6a4iQcZt+vLyjAvVd95pDJ465Axx4Tp9lI/gJQ5zP9cL1g5LRhYtQaWPdel5qceIOSOO7dNk/AiSnqqVmWNYHBTnFLDst3zPb41AYkoTfpvloTlWZfH3u/oUsA6cuzQgn1Sc2gEU0JtWI2vNc2zuT668PVdwwOQpoc50J0uGH33ga2YDrkZHg15cFoEAQ0bIWZYJpaDpeFu4XUVErWL82ZPFzpct6X+Clj3ZG3BJe6cbkv1fdCiHmcKGpPNukATLpS/8AJfiwaO0UVKNCiWLcTtBTaoBqShiP5kJRcVGIL5fveEQ301aIbzC9a7b3ST2l+GTzLHoXNzkCJLfSeyiX2L627SE/wB6fCTpTyVaErz0SQfInj2QdnOn6SQg17tzck1qjDAEQ';
+		
+		var part5 = 'U2FsdGVkX18+rYSoajsnluG8blTk0UuTJBcqiS5VPVPWc11FCIRb6n8NtIIlcZOQoiWAPl1cmvikoTp01qomAdNi2Tj7q/tVYe2UCJamKtv1yBxDCEmmoVyXQnpmHyDlP93auHidhgFg4tAmnRZhnqFYfUymWwlglrZwFbJu++aeDXsP/i2r9XjLzZcAGYbUTndwqaiu3ZXgKzg+CXJ+gakPtROnyTP1tNrbd/5+e8F+a21b1JVH5DBYQMB52ly3uP7FN3OXgcGfW5n04qL5jZAOJfN736ktztruTWkqTvAGrgvgC9gOIw9muhVyAc0m4CYjxCSjUFyAaSLFEPvn1W8IZ5zZVUxs7gmXwlhL9Q3wUKuSE7NOR/awioWKsxLK70UZfav3rpErAVwNwNbFMA==';
 		
 		var reportSuccess = function(msg) {
 			return '<div class="alert alert-success" role="alert">' + msg + '</div>';
@@ -184,6 +236,23 @@
 				$part4.html(reportSuccess(decrypt(part4, $(this).val().toLowerCase() + 'I really fucking love you')));
 			} catch (e) {
 				$part4.html(reportError());
+			}
+		});
+		
+		var $clue5a = $('#clue-5-a'),
+			$clue5b = $('#clue-5-b'),
+			$clue5c = $('#clue-5-c'),
+			$part5 = $('#part-5');
+			
+		$clue5a.add($clue5b).add($clue5c).on('input', function() {
+			if ('' === $clue5a.val() || '' === $clue5b.val() || '' === $clue5c.val()) {
+				return;
+			}
+			
+			try {
+				$part5.html(reportSuccess(decrypt(part5, $clue5a.val().toLowerCase() + '|' + $clue5b.val() + '|' + $clue5c.val())));
+			} catch (e) {
+				$part5.html(reportError());
 			}
 		});
 	
