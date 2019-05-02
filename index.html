@@ -77,6 +77,20 @@
 		
 		<hr>
 		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="clue-4">To figure out where we're heading for dinner, what's the attraction that we're close to right now?</label>
+					<input type="text" class="form-control" id="clue-4">
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div id="part-4" style="word-wrap: break-word;"></div>
+			</div>
+		</div>
+		
+		<hr>
+		
 		<p>More to come...</p>
 		
 	</div>
@@ -102,6 +116,8 @@
 		var part2 = 'U2FsdGVkX18KKSgWQCVONOto7SI6LCtTg3ISGOxhZTaJHFJCflltNNjtjMhVgwkaAX0Pi4Rb4WTdn0uChvaKoRZgRtrbmoVYd52bwNjSQAnNq/VLqg/xyCf0Y0SDOX2vI267/El4RA3YUa9IeTgFHEOL2jdule90lQNfdDsc4oG8vlayjiizd2LvjAEpY72iHJOLMG5chQFIK9xp9KwMzAmd/VbSBNjMXW8T3tcbdy8LVS2OqDhKp6BiQ8gXkidxIU2Yn88eO6Qw9DsDEXg9o8v/4HBO9AGpK2qrjmI7byrey4DdE9sy3O4fvywXEt0CffIA0JAOvDgmhz2kSxn2CQ==';
 		
 		var part3 = 'U2FsdGVkX19J8zONvZ89ANDsM16IYF5Iv4d1lQKkGBL+3e+N7ITxqlzxmQG9EY0wmNvVC6fdOwFriZBerDTf7NewWlBpeG7SajWf5EoQEow2ktUJ570yB1DKE8N1T7WdcULvg6efAOF9euS/47iBdyuntV1ZhqaQipohtgfFlYYZkhoQy3LcRcVYW6syHI6e7linQzz/pEbZIeQtLiYmNH9XJVNcp2r62hQMBgo07RAaKPyvN52ySuhcLE1zYBGyRTn2HOhsqk7clSY6Br/wRhRKkMQnjrZlXPxqXDiNOioP6iCJJRBYjGq2wTEcx7dABTSg7m/zRFtwrHi5Hk97ud5RjSsPNY3ushRoYwz1YQcDTXyyvnkbJKG5LznIQyjgFK49ROL006cgEGPp4PGfsVV9BEAPwObcbP+WeJRyTQ+jacQPNMA4qzmszW6gea5LnDsPTCiiE0GXLGwH9u0cOqaO/TAh8QR7XGApJ+TVDJo=';
+		
+		var part4 = 'U2FsdGVkX1/1LwKe/TJSKJX4ofUMDwqxO9rkyLo8e0I40BAAa3hsNpY+CT3tCXwQ9j7lQX3/L42/Ht3yU0qmCKSMoUmPTqckbvRcHB6bzhOc7kSlfhv8wLHGvrXO57I9pl4L+S+4lqVfbeGmeeBe8ux9xSiadRr6shGZwrOIFexk4F6uSdDI/ksyIEl1zVgKyAsGmxQg9YoKhbvwWiClfLZb6rgO8ovwub815oZYw/k=';
 		
 		var reportSuccess = function(msg) {
 			return '<div class="alert alert-success" role="alert">' + msg + '</div>';
@@ -151,6 +167,16 @@
 				$part3.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8) + '</div>'));
 			} catch (e) {
 				$part3.html(reportError());
+			}
+		});
+		
+		var $part4 = $('#part-4');
+		$('#clue-4').on('input', function() {
+			try {
+				var bytes = CryptoJS.AES.decrypt(part4, $(this).val().toLowerCase() + 'I really fucking love you');
+				$part4.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8) + '</div>'));
+			} catch (e) {
+				$part4.html(reportError());
 			}
 		});
 	
