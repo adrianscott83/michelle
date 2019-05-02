@@ -108,20 +108,8 @@
 					<label for="clue-5-b">How many objects and of what color are the items in the painting on the right?</label>
 					<div class="row">
 						<div class="col">
-							<select id="clue-5-b" class="form-control">
-								<option value="">Please Select...</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-							</select>
-							<small class="form-text text-muted"># of object(s)</small>
+							<input type="number" id="clue-5-b" class="form-control" min="0" step="1">
+							<small class="form-text text-muted">Number of object(s)</small>
 						</div>
 						<div class="col">
 							<select id="clue-5-c" class="form-control">
