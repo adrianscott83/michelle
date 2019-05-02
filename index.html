@@ -23,6 +23,7 @@
 			<p>P.S. love you!</p>
 		</div>
 	
+		<h5>Clue #1</h5>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -38,6 +39,7 @@
 		
 		<hr>
 		
+		<h5>Clue #2</h5>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -61,6 +63,7 @@
 		
 		<hr>
 		
+		<h5>Clue #3</h5>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -79,6 +82,7 @@
 		
 		<hr>
 		
+		<h5>Clue #4</h5>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -127,12 +131,16 @@
 		var reportError = function() {
 			return '<div class="alert alert-danger" role="alert">Sorry, that was the wrong answer :\'(</div>';
 		};
+		
+		var decrypt = function(cipher, key) {
+			var bytes = CryptoJS.AES.decrypt(cipher, key);
+			return bytes.toString(CryptoJS.enc.Utf8);
+		};
 	
 		var $part1 = $('#part-1');
 		$('#clue-1').on('input', function() {
 			try {
-				var bytes = CryptoJS.AES.decrypt(part1, $(this).val());
-				$part1.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8)));
+				$part1.html(reportSuccess(decrypt(part1, $(this).val())));
 			} catch (e) {
 				$part1.html(reportError());
 			}
@@ -148,8 +156,7 @@
 			}
 			
 			try {
-				var bytes = CryptoJS.AES.decrypt(part2, $clue2a.val() + '|' + $clue2b.val().toLowerCase());
-				$part2.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8)));
+				$part2.html(reportSuccess(decrypt(part2, $clue2a.val() + '|' + $clue2b.val().toLowerCase())));
 			} catch (e) {
 				$part2.html(reportError());
 			}
@@ -165,8 +172,7 @@
 			}
 			
 			try {
-				var bytes = CryptoJS.AES.decrypt(part3, $clue3a.val().toLowerCase() + '|' + $clue3b.val().toLowerCase());
-				$part3.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8)));
+				$part3.html(reportSuccess(decrypt(part3, $clue3a.val().toLowerCase() + '|' + $clue3b.val().toLowerCase())));
 			} catch (e) {
 				$part3.html(reportError());
 			}
@@ -175,8 +181,7 @@
 		var $part4 = $('#part-4');
 		$('#clue-4').on('input', function() {
 			try {
-				var bytes = CryptoJS.AES.decrypt(part4, $(this).val().toLowerCase() + 'I really fucking love you');
-				$part4.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8)));
+				$part4.html(reportSuccess(decrypt(part4, $(this).val().toLowerCase() + 'I really fucking love you')));
 			} catch (e) {
 				$part4.html(reportError());
 			}
