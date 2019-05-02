@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>&lt;3</title>
+  </head>
+  <body>
+  
+	<div class="container mt-3">
+		<div class="alert alert-info" role="alert">
+			<h4 class="alert-heading">Happy Birthday!</h4>
+			<p>Hey babe, I know this is unconventional but I figure you'd appreciate it. Answer the questions below to get clue or message behind each one. I'll keep you updated along the way...</p>
+			<hr>
+			<p>P.S. love you!</p>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="clue-1">What was the full address (found on Google Maps) of the place we first met?</label>
+					<input type="text" class="form-control" id="clue-1">
+					<small id="clue-1-help" class="form-text text-muted">This is an easy one to start you off ;-)</small>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div id="part-1" style="word-wrap: break-word;"></div>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="clue-2-a">What are the open hours for the place we are currently at for today?</label>
+					<select id="clue-2-a" class="form-control">
+						<option value="">Please Select...</option>
+						<option value="8:00AM - 7:00PM">8:00AM - 7:00PM</option>
+						<option value="9:00AM - 8:00PM">9:00AM - 8:00PM</option>
+						<option value="10:00AM - 9:00PM">10:00AM - 9:00PM</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="clue-2-b">What's the name of the city we're in?</label>
+					<input type="text" class="form-control" id="clue-2-b">
+					<small id="clue-2-help" class="form-text text-muted">This is case sensitive, please mske sure to capitalize it!</small>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div id="part-2" style="word-wrap: break-word;"></div>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<div class="row mt-6">
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="text" class="form-control" id="encrypt-key">
+				</div>
+				<div class="form-group">
+					<textarea id="encrypt-content" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div id="encrypted" style="word-wrap: break-word;"></div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	</div>
+	
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+	
+	<script type="text/javascript">
+	(function($) {
+		
+		var part1 = 'U2FsdGVkX18smSoIUyAyp0709OKZlUn+Uo2qYkAqJdbq7liv3Wjm4djB073QJUxpmGn/HybM7ltgQuMFdAFOZgWqwSsGC+HkPOuryB+wu5duIw2Mm4O+a7sCy8d1/WYGBPxppQw+Js+AcbYrcT1pm8/Y+VxwGZ+Wggn7K3GGf8Hgx6qfaSlOIxOA53ixgr8GN93lVAAIIR9pWe58UdtsrSk4oWlZwVIK8VwYM0UXAru3pGkEZMa2uwvkgFgDrQu7YvTPd5kQvnaTcu/x143QqSG4ENx2296s7z/P7fmi6aHIEEzMhV021N7Di7Jc+y3rscU/uMmil/i0nRvxWw6b/Yh/HuVp3u2RRn5UM8pzyzalZtds4y0qCXg+YaN5Vd5CY5dB3b8Uj+q56jnpFVDsoAmZLKzCDD0odh0l4SREBhXjoL4zjbFDc4hyqwZ7myd5BoWssEMLQjkhrtP7aJ2LzTGHeslYQrpPvGpY7Sdfq0s=';
+		
+		var reportSuccess = function(msg) {
+			return '<div class="alert alert-success" role="alert">' + msg + '</div>';
+		};
+		var reportError = function() {
+			return '<div class="alert alert-danger" role="alert">Sorry, that was the wrong answer :\'(</div>';
+		};
+	
+		$('#clue-1').on('input', function() {
+			var $part1 = $('#part-1');
+			try {
+				var bytes = CryptoJS.AES.decrypt(part1, $(this).val());
+				$part1.html(reportSuccess(bytes.toString(CryptoJS.enc.Utf8) + '</div>'));
+			} catch (e) {
+				$part1.html(reportError());
+			}
+		});
+	
+		$('#clue-2-a, #clue-2-b').on('input', function() {
+		
+		
+			var $part2 = $('#part-2');
+			$part2.text('OMG');
+		
+		});
+		
+		
+	
+	
+	
+	
+	
+		$('#encrypt-key, #encrypt-content').on('input', function() {
+			$('#encrypted').text(CryptoJS.AES.encrypt($('#encrypt-content').val(), $('#encrypt-key').val()).toString());
+		});
+	
+	
+	
+	})(jQuery);
+	</script>
+
+  </body>
+</html>
