@@ -86,7 +86,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="clue-4">To figure out where we're heading for dinner, what's the attraction that we're close to right now?</label>
+					<label for="clue-4">To figure out where we're heading next (and then for dinner), what's the attraction that we're close to right now?</label>
 					<input type="text" class="form-control" id="clue-4">
 				</div>
 			</div>
@@ -135,7 +135,27 @@
 		
 		<hr>
 		
-		<p>More to come...</p>
+		<h5>Clue #6</h5>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="clue-6-a">The place we're currently in is pretty historic. What's the number in the address of this location and when was it first established?</label>
+					<div class="row">
+						<div class="col">
+							<input type="number" id="clue-6-a" class="form-control" min="0" step="1">
+							<small class="form-text text-muted">Number in Address</small>
+						</div>
+						<div class="col">
+							<input type="number" id="clue-6-b" class="form-control" min="0" step="1">
+							<small class="form-text text-muted">Year Established</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div id="part-6" class="text-break"></div>
+			</div>
+		</div>
 		
 	</div>
 	
@@ -161,9 +181,11 @@
 		
 		var part3 = 'U2FsdGVkX19J8zONvZ89ANDsM16IYF5Iv4d1lQKkGBL+3e+N7ITxqlzxmQG9EY0wmNvVC6fdOwFriZBerDTf7NewWlBpeG7SajWf5EoQEow2ktUJ570yB1DKE8N1T7WdcULvg6efAOF9euS/47iBdyuntV1ZhqaQipohtgfFlYYZkhoQy3LcRcVYW6syHI6e7linQzz/pEbZIeQtLiYmNH9XJVNcp2r62hQMBgo07RAaKPyvN52ySuhcLE1zYBGyRTn2HOhsqk7clSY6Br/wRhRKkMQnjrZlXPxqXDiNOioP6iCJJRBYjGq2wTEcx7dABTSg7m/zRFtwrHi5Hk97ud5RjSsPNY3ushRoYwz1YQcDTXyyvnkbJKG5LznIQyjgFK49ROL006cgEGPp4PGfsVV9BEAPwObcbP+WeJRyTQ+jacQPNMA4qzmszW6gea5LnDsPTCiiE0GXLGwH9u0cOqaO/TAh8QR7XGApJ+TVDJo=';
 		
-		var part4 = 'U2FsdGVkX1+YzgOWGv3HdfMttEGlF0RjruXpZs4HDjN4HUSRH+zwMPPhJPO0DGfL0PV8rS2XH5BFgrqUctap3OAuZGCyYSpnaQNSXKtCExOGL1x3+SdYoqg9Rns6yDyRsTAb5P/SG13/Wj0yK5GWTfR00CbseRtMv+KzK9PTqkXYhzW6Ssgc1od6a4iQcZt+vLyjAvVd95pDJ465Axx4Tp9lI/gJQ5zP9cL1g5LRhYtQaWPdel5qceIOSOO7dNk/AiSnqqVmWNYHBTnFLDst3zPb41AYkoTfpvloTlWZfH3u/oUsA6cuzQgn1Sc2gEU0JtWI2vNc2zuT668PVdwwOQpoc50J0uGH33ga2YDrkZHg15cFoEAQ0bIWZYJpaDpeFu4XUVErWL82ZPFzpct6X+Clj3ZG3BJe6cbkv1fdCiHmcKGpPNukATLpS/8AJfiwaO0UVKNCiWLcTtBTaoBqShiP5kJRcVGIL5fveEQ301aIbzC9a7b3ST2l+GTzLHoXNzkCJLfSeyiX2L627SE/wB6fCTpTyVaErz0SQfInj2QdnOn6SQg17tzck1qjDAEQ';
+		var part4 = 'U2FsdGVkX1+cSOSvwlcUWgSBCg0iV3UjztsukLo77xGEc181M4Ojg6hiYlK1jJ32qfcqnKqKtDDsVTFOsx9hVd51ZQtI3LmjthgLaUPNoJTyw9sa6Qx5OgdluMLrrymJog2Yl3urHCiORhhDXaNZd1mkg9Mpty6XFMR78Vzf1afjOtdLQc3Vq8FUn5J3tb/ZdODRNct4YN50pA2O75NHBbgXRy6t3iLp5cVEY7zA30iyyWSC9iN4TdqnUB4wPfBHGFzvePuCFFZPY/gNFEu4hiKzZfqA1QYtaYb7u5ElagejRl4Cz1AKq/qpdP5+IM49NY78eO4tWTDtUMhxdG/4c9Q6D9SoEJHyagNitMLLyyiydbmCQY0W+CARdopt11EyWESwSp/B+FUyYsm2sYySd7cRPs3dL6X65U3cFRlnEgofdxKizWh35xFxJGEHfSRV8EDa/LoojTlk6Lt+7VHpS9BjQ6uP2/zAyTh8YBtyvjULWITT13gUzcuZJ3mpPZhmdfFigUqqXcDmQBfMwSwJ/a5zf+pH2QjwFkVNV82VY3SUj9zAAN5lF+rDXj138+0BDK1htUUaG+lxyd6dPofWpKXS9DSsflDhjbomTAJ720TMba2bcRtddEg+76PxX/izC7iTkvvxN87nZegN1TK/JucyAqYl3h39Ao8sONs8Ey3dx+lfKnvn4WRY+6BAlK8Gq4FdfCJ7TeXFsitORYtf07FwO7ojHJBWVUUFVQmN/Gd2XcdDZn+rWbG7aoAqEChDHOmxRTYR98my7uXvYAYw81HOfUJDrdlu/HsSWxiNK955bUdrLUU/fQ+UTPpryYqtILYaI+y6QgZLKzzNjkziCqUorPeUB1TOm86ncdtEzxg=';
 		
-		var part5 = 'U2FsdGVkX18+rYSoajsnluG8blTk0UuTJBcqiS5VPVPWc11FCIRb6n8NtIIlcZOQoiWAPl1cmvikoTp01qomAdNi2Tj7q/tVYe2UCJamKtv1yBxDCEmmoVyXQnpmHyDlP93auHidhgFg4tAmnRZhnqFYfUymWwlglrZwFbJu++aeDXsP/i2r9XjLzZcAGYbUTndwqaiu3ZXgKzg+CXJ+gakPtROnyTP1tNrbd/5+e8F+a21b1JVH5DBYQMB52ly3uP7FN3OXgcGfW5n04qL5jZAOJfN736ktztruTWkqTvAGrgvgC9gOIw9muhVyAc0m4CYjxCSjUFyAaSLFEPvn1W8IZ5zZVUxs7gmXwlhL9Q3wUKuSE7NOR/awioWKsxLK70UZfav3rpErAVwNwNbFMA==';
+		var part5 = 'U2FsdGVkX1+BzS038STUqOvoq0Z5/d5rYU0yQVtUtuLZJ+Bd3/unUWgdZxThylakNqXHsdHYlZVCZC57kO9CPXob0mTKq8/+eINczIlf5AE1RRDzdzOinncDESNFmAOxyVbz5IHLjao9SraWw/c0MlOsC7mnu2lCgNdvb+WmdTfBUQZoPp2KsP9X+Jk+SLbWyEmru7tXNcvBfCYxvd4SnvuwVCprtI/kzgaHjygTZRK4/7BLHq9dMeHLvCPWS5TF3NmwTkeEYIBrVN9+jN3wf6cjo9fxrsfkoO30ukif6Rgn4Sv0RMgDrw3SAPChGrZIzArJVLwOFD0zX+TL9baJC9HKO0rOq+vLR70oau2MOBVRCGxba4Ym85ErCURMNkrlmJl4nCqkv5K6lszaIZCtHb83qWl/7mwqeQ175NEpytVRgmrziMhvUf2h2GMQeedoo0ahrCKjdMJCRwEXh3FDE7ePiVgTg/CkPLimFWrwOoGoPhHJ6UxbYwhKfztyVNQ1L4eoJj/WITfCw5LD3Rb8mN8+o6lRzO7MoAofMrCgXc4=';
+		
+		var part6 = 'U2FsdGVkX18dbJdUabSAxmT2ZILoaBtKwvCx4UipeI9g5FfbhNDGkDTrjhFvWSPrWa0714v2m7nYfnnRTRJYr3VBKz8cfpypdhJoDcM/7uNbhioVUUhgfWwhsr9k96K/pg4XOLyZt0eOtd8gqA9WoIPvI7bUjkBuQMppcKDXtAh5pmsPjaPDLSNCxEpZiVrS092gmgr08MBZ9ARtppqck95r8Ngw1DIhpvaNuJWVDVPSZhoqLKy06BE0Yr++3IWikq06Ganf/44nP4wS7njVg7J3vYNqYXD8xdUWw0Het9ueBK6uwyz2opsUf3teo9MEh7f0DMjfb2blB6x04ZzT5fGaa4Lh03962JGPGTKKYgv9gS6V5KnNWjxqAx3jawRj6nQIn1PcwvjOjUYzZgPMJCiaLza9RiiecVx1ZudabFZMl38+c2bBRWsgABFa70kPMy3zTa+47PzimR5rcqlgW/UNuT1C5O6mK0a/m8yRlM4A0LCX5KnQXBxLR/hGNkjaY0mKtQhhKiOXhwnoUKI1t2s5OISpAc07SZrfl7t6Tc0LyUfYQuPSRSikJx2CzbZJP1y9N8k0RUbWD7Rslp26jje8FAzXgcyyUi8wj8d+UGHruZpN+xY1k0qECO56phbrsqvRVYRf9FOBWpZKxEMAgH9HHyFCM0GdT1RQylIpalnKnIXfNWcwWdvp1SZYiST+vT0uGv2SUhy7q65P/J8rd/qPy8VGp82JxgmbCsLEx+M=';
 		
 		var reportSuccess = function(msg) {
 			return '<div class="alert alert-success" role="alert">' + msg + '</div>';
@@ -241,6 +263,22 @@
 				$part5.html(reportSuccess(decrypt(part5, $clue5a.val().toLowerCase() + '|' + $clue5b.val() + '|' + $clue5c.val())));
 			} catch (e) {
 				$part5.html(reportError());
+			}
+		});
+		
+		var $clue6a = $('#clue-6-a'),
+			$clue6b = $('#clue-6-b'),
+			$part6 = $('#part-6');
+			
+		$clue6a.add($clue6b).on('input', function() {
+			if ('' === $clue6a.val() || '' === $clue6b.val()) {
+				return;
+			}
+		
+			try {
+				$part6.html(reportSuccess(decrypt(part6, $clue6a.val() + '|' + $clue6b.val())));
+			} catch (e) {
+				$part6.html(reportError());
 			}
 		});
 	
